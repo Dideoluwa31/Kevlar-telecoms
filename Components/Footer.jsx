@@ -1,0 +1,120 @@
+"use client";
+import { motion } from "framer-motion";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+
+export default function Footer() {
+  return (
+    <footer
+      className="bg-gray-900 text-gray-300 pt-16 pb-8 px-6 md:px-16"
+      style={{ ["--brand"]: "#019a65" }}
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        {/* Company Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Image
+              src="/clients/kevlar logo.png"
+              alt="Kevlar Telecoms Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <h3 className="text-white font-semibold text-lg">Kevlar Telecoms Limited</h3>
+          </div>
+          <p className="text-sm leading-relaxed text-gray-400">
+            A licensed ICT and telecommunications company committed to providing
+            reliable, innovative, and sustainable connectivity solutions across
+            Nigeria and beyond.
+          </p>
+        </motion.div>
+
+        {/* Quick Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <h4 className="text-white font-semibold mb-4 text-lg">Quick Links</h4>
+          <ul className="space-y-2 text-sm">
+            {[
+              { name: "About Us", href: "#about" },
+              { name: "Services", href: "#services" },
+              { name: "Our Approach", href: "#approach" },
+              { name: "Projects", href: "#projects" },
+              { name: "Clients", href: "#clients" },
+              { name: "Contact", href: "#contact" },
+            ].map((link, index) => (
+              <li key={index}>
+                <a
+                  href={link.href}
+                  className="hover:text-[var(--brand)] transition-colors"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        {/* Contact */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h4 className="text-white font-semibold mb-4 text-lg">Get in Touch</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start gap-2">
+              <MapPin size={18} className="text-[var(--brand)] mt-0.5" />
+              <span>12, Linda Chalker Crescent, Asokoro, Abuja, Nigeria</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Mail size={18} className="text-[var(--brand)] mt-0.5" />
+              <a href="mailto:info@kevlartel.com" className="hover:text-[var(--brand)]">
+                info@.com
+              </a>
+            </li>
+            <li className="flex items-start gap-2">
+              <Phone size={18} className="text-[var(--brand)] mt-0.5" />
+              <a href="tel:+2349012345678" className="hover:text-[var(--brand)]">
+                +234 901 234 5678
+              </a>
+            </li>
+          </ul>
+
+          {/* Social Links */}
+          <div className="flex gap-4 mt-5">
+            {[
+              { icon: <Facebook size={20} />, link: "#" },
+              { icon: <Twitter size={20} />, link: "#" },
+              { icon: <Linkedin size={20} />, link: "#" },
+              { icon: <Instagram size={20} />, link: "#" },
+            ].map((item, i) => (
+              <motion.a
+                key={i}
+                href={item.link}
+                whileHover={{ scale: 1.15 }}
+                className="p-2 rounded-full bg-gray-800 text-gray-300 hover:text-white hover:bg-[var(--brand)] transition-colors"
+              >
+                {item.icon}
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Divider */}
+      <div className="mt-12 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Kevlar Telecoms Limited. All rights reserved.
+      </div>
+    </footer>
+  );
+}

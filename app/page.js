@@ -1,6 +1,12 @@
-import Navbar from "@/Components/Navbar"
 import AboutSection from "@/Components/AboutSection";
 import ServicesSection from "@/Components/ServicesSection";
+import Navbar from "@/Components/Navbar";
+import LandingPage from "@/Components/LandingPage";
+import ApproachSection from "@/Components/ApproachSection";
+import ClientsSection from "@/Components/ClientsSection";
+import ProjectsSection from "@/Components/ProjectsSection";
+import VisionMissionSection from "@/Components/VisionMissionSection";
+import Footer from "@/Components/Footer";
 
 
 
@@ -12,11 +18,21 @@ export default function Home() {
     >
     <div>
       <div>
+        <div>
+        {/* <LandingPage/> */}
+      </div>
         {/* <Navbar/> */}
         <AboutSection/>
         <ServicesSection/>
+        <ApproachSection/>
+        <ClientsSection/>
+        <ProjectsSection/>
+        <VisionMissionSection/>
+        <Footer/>
+
       </div>
       
+
     </div>
     </main>
   );

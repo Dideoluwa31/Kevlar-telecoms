@@ -12,57 +12,57 @@ export default function ServicesSection() {
     {
       title: "Smart City Deployment",
       desc: "Building intelligent urban ecosystems through IoT connectivity, surveillance, and sustainable communication infrastructure.",
-      img: "/images/services/smart-city.jpg",
+      img: "/services/smart-city.jpg",
     },
     {
       title: "Smart School / Campus Solution Deployment",
       desc: "Empowering educational institutions with digital learning infrastructure and campus-wide connectivity solutions.",
-      img: "/images/services/smart-school.jpg",
+      img: "/services/smart-school.jpg",
     },
     {
       title: "Optic Fibre Deployment & Maintenance (Backhaul, Metro, Last Mile)",
       desc: "Designing, deploying, and maintaining high-capacity fiber optic infrastructure for telecom and enterprise clients.",
-      img: "/images/services/fibre-deployment.jpg",
+      img: "/services/fibre-deployment.jpg",
     },
     {
       title: "FTT(x) Deployment (OSP and ISP)",
       desc: "Comprehensive Fiber-To-The-Home (FTTH) and OSP/ISP implementations using modern GPON standards.",
-      img: "/images/services/fttx.jpg",
+      img: "/services/fttx.jpg",
     },
     {
       title: "Structured Cabling & Data Center Solutions",
       desc: "Providing professional cabling infrastructure and integrated data center networking for optimized performance.",
-      img: "/images/services/data-center.jpg",
+      img: "/services/data-center.jpg",
     },
     {
       title: "Infrastructure Testing & Acceptance",
       desc: "Ensuring all deployed infrastructures meet global telecom standards through rigorous testing and certification.",
-      img: "/images/services/testing.jpg",
+      img: "/services/testing.jpg",
     },
     {
       title: "Telecommunications Equipment Supply",
       desc: "Supplying top-quality telecom equipment, accessories, and hardware for network deployment and upgrades.",
-      img: "/images/services/equipment.jpg",
+      img: "/services/equipment.jpg",
     },
     {
       title: "Base Station Deployment",
       desc: "Designing, installing, and maintaining mobile base stations to enhance network coverage and reliability.",
-      img: "/images/services/base-station.jpg",
+      img: "/services/base-station.jpg",
     },
     {
       title: "Digital Educational Solutions",
       desc: "Delivering innovative e-learning platforms and digital classroom technologies for schools and universities.",
-      img: "/images/services/digital-edu.jpg",
+      img: "/services/digital-edu.jpg",
     },
     {
       title: "CCTV Installation & Maintenance Training",
       desc: "Expert installation, configuration, and training for CCTV systems, ensuring safety and operational efficiency.",
-      img: "/images/services/cctv.jpg",
+      img: "/services/cctv.jpg",
     },
     {
       title: "Consulting",
       desc: "Offering professional consulting across telecommunications, project management, and ICT transformation.",
-      img: "/images/services/consulting.jpg",
+      img: "/services/consulting.jpg",
     },
   ];
 
