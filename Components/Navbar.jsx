@@ -1,156 +1,84 @@
-// components/Navbar.js
 "use client";
 
 import { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
 import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { FiSun, FiMoon } from "react-icons/fi";
+import ThemeToggle from "@/Components/ThemeToggle";
 
 export default function Navbar() {
-  const [navBackground, setNavBackground] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobileLogoRotated, setIsMobileLogoRotated] = useState(false);
-  const pathname = usePathname(); // Get current path
+  const [navBg, setNavBg] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
+  // Change background on scroll
   useEffect(() => {
     const handleScroll = () => {
-      setNavBackground(window.scrollY > 50);
+      setNavBg(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMobileLogoClick = () => {
-    setIsMobileLogoRotated(!isMobileLogoRotated);
-  };
-
-  // Determine if we're on the homepage
-  const isHomePage = pathname === "/";
-
-  // Navigation links configuration
-  const navLinks = [
-    { name: "Home", id: "home", href: "/" },
-    { name: "About", id: "about", href: "/" },
-    { name: "Services", id: "services", href: "/" },
-    { name: "Contact", id: "contact", href: "/contactus" },
-    { name: "Sectors", id: "sectors", href: "/" },
-  ];
+  // Toggle dark mode
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full transition-all duration-300 z-50 
-      bg-white shadow-[0_4px_15px_rgba(0,0,0,0.15)]`}
-    >
-      <div className="container mx-auto p-10">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="flex justify-between items-center">
-            {/* Logo and Brand Name Combined */}
-            <div className="flex items-center space-x-15">
-              <div
-                className={`w-20 h-20 items-center ${isMobileLogoRotated ? "rotate-360" : ""} 
-                transition-all duration-500 cursor-pointer`}
-                onClick={handleMobileLogoClick}
-              >
-                <Image
-                  src="/logo/infralogo2-removebg-preview (1).png"
-                  alt="logo"
-                  width={200}
-                  height={200}
-                  className="object-contain rounded-full hover:rotate-180 transition-transform duration-500"
-                />
-              </div>
-              <h1 className="text-lg font-bold font-serif text-[#1f888d]">
-                INFRAGENIX NIGERIAN LIMITED
-              </h1>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-15 text-md text-[#1f888d]">
-              {navLinks.map((link) =>
-                link.href === "/contactus" ? (
-                  <Link
-                    key={link.name}
-                    href="/contactus"
-                    className="cursor-pointer text-[#1f888d] hover:text-blue-300"
-                  >
-                    {link.name}
-                  </Link>
-                ) : isHomePage ? (
-                  <ScrollLink
-                    key={link.name}
-                    to={link.id}
-                    smooth={true}
-                    duration={800}
-                    offset={-50}
-                    className="cursor-pointer text-[#1f888d] hover:text-blue-300"
-                  >
-                    {link.name}
-                  </ScrollLink>
-                ) : (
-                  <Link
-                    key={link.name}
-                    href={`${link.href}#${link.id}`}
-                    className="cursor-pointer text-[#1f888d]hover:text-blue-300"
-                  >
-                    {link.name}
-                  </Link>
-                )
-              )}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-[#1f888d]"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <FiX size={30} /> : <FiMenu size={30} />}
-            </button>
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        navBg
+          ? "bg-[#019a65] dark:bg-gray-900 shadow-md"
+          : "bg-transparent"
+      }`}>
+         <ThemeToggle />
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo + Company Name */}
+        <div className="flex items-center space-x-3">
+          <div className="relative w-10 h-10">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              fill
+              className="object-contain cursor-pointer transform transition-transform duration-700 hover:rotate-[360deg]"
+            />
           </div>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            KEVLAR TELECOMSNIG LIMITED
+          </h1>
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden text-[#2dd9e1] shadow-md transition-all duration-300 bg-blue-900">
-            {navLinks.map((link) =>
-              link.href === "/contactus" ? (
-                <Link
-                  key={link.name}
-                  href="/contactus"
-                  className="cursor-pointer block px-4 py-2 hover:bg-blue-700"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ) : isHomePage ? (
-                <ScrollLink
-                  key={link.name}
-                  to={link.id}
-                  smooth={true}
-                  duration={800}
-                  offset={-50}
-                  className="cursor-pointer block px-4 py-2 hover:bg-blue-700"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </ScrollLink>
-              ) : (
-                <Link
-                  key={link.name}
-                  href={`${link.href}#${link.id}`}
-                  className="cursor-pointer block px-4 py-2 hover:bg-blue-700"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              )
+        {/* Nav Links */}
+        <div className="flex items-center space-x-6">
+          {["home", "services", "about", "contact"].map((item) => (
+            <ScrollLink
+              key={item}
+              to={item}
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-full text-lg transition-all"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </ScrollLink>
+          ))}
+
+          {/* Theme Toggle */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full border border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            {darkMode ? (
+              <FiSun className="text-yellow-400 w-5 h-5" />
+            ) : (
+              <FiMoon className="text-gray-700 dark:text-gray-200 w-5 h-5" />
             )}
-          </div>
-        )}
+          </button>
+        </div>
       </div>
     </nav>
   );
