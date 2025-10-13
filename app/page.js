@@ -2,6 +2,8 @@ import Navbar from "@/Components/Navbar";
 import LandingPage from "@/Components/LandingPage";
 
 
+
+
 export default function Home() {
   return (
     
