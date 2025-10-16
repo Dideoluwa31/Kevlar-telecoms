@@ -1,25 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  ChevronDown,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 
-// Custom icons and components for the doctor's stats and avatar
-const DoctorStats = ({ count, label, icon }) => (
-  <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-lg text-gray-700">
-    {icon}
-    <div>
-      <div className="text-xl font-bold text-cyan-600">{count}</div>
-      <div className="text-xs text-gray-500">{label}</div>
-    </div>
-  </div>
-);
-
-// --- Reusable Form Input Component ---
+// --- Reusable Input Component ---
 const FormInput = ({
   label,
   name,
@@ -89,7 +74,7 @@ export default function Contact() {
     phone: "",
     email: "",
     subject: "",
-    Message: "",
+    message: "",
   });
 
   const handleFormChange = (e) => {
@@ -100,20 +85,20 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const phoneNumber = "2348069546092"; // Your business WhatsApp number
+    const phoneNumber = "2348069546092"; // Kevlar WhatsApp number
 
     const message = `
-Hello! 👋
-I would like to book an appointment.
+Hello Kevlar Telecoms! 👋
+I would like to make an inquiry.
 
 🧍 Name: ${formData.name}
 📞 Phone: ${formData.phone}
-📅 Email: ${formData.email}
-⏰ Subjects: ${formData.subjects}
-    
+📧 Email: ${formData.email}
+📋 Subject: ${formData.subject}
 
-Message:
-${form.message}`;
+💬 Message:
+${formData.message}
+`;
 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
@@ -121,28 +106,47 @@ ${form.message}`;
     window.open(whatsappURL, "_blank");
   };
 
-  const bannerClasses =
-    "relative pt-12 pb-64 md:pb-80 lg:pb-96 bg-gradient-to-r from-green-200 via-green-300 to-green-400 overflow-hidden";
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 font-inter">
       {/* -------------------- HEADER BANNER -------------------- */}
-      <header className={bannerClasses}>
-        <div className="max-w-7xl mx-auto text-center items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="lg:w-1/2  pt-4">
-            <h1 className="text-5xl md:text-6xl  font-extrabold text-gray-800 mb-4">
+      <header className="relative pt-12 pb-64 md:pb-80 lg:pb-96 bg-gradient-to-r from-green-200 via-green-300 to-green-400 overflow-hidden">
+        <motion.div
+          className="max-w-7xl mx-auto text-center items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          <div className="lg:w-1/2 pt-10 mx-auto">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-800 mb-4">
               Contact Us
             </h1>
-            <p className="text-lg text-gray-600 max-w-md">
-              Kindly reach us to get the latest response and treatment
+            <p className="text-lg text-gray-700 max-w-md mx-auto">
+              Kindly reach out to us for quick responses and expert assistance.
             </p>
           </div>
-        </div>
+        </motion.div>
       </header>
 
-      {/* -------------------- APPOINTMENT FORM -------------------- */}
-      <div className="max-w-5xl mx-auto -mt-40 md:-mt-52 lg:-mt-64 relative z-20 px-4 sm:px-6 lg:px-8">
-        <div className="bg-white p-6 sm:p-10 lg:p-12 rounded-3xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.2)]">
+      {/* -------------------- CONTACT FORM -------------------- */}
+      <motion.div
+        className="max-w-5xl mx-auto -mt-40 md:-mt-52 lg:-mt-64 relative z-20 px-4 sm:px-6 lg:px-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        <motion.div
+          className="bg-white p-6 sm:p-10 lg:p-12 rounded-3xl shadow-[0_20px_50px_rgba(1,154,101,0.15)] hover:shadow-[0_20px_60px_rgba(1,154,101,0.25)] transition duration-500"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormInput
@@ -161,37 +165,45 @@ ${form.message}`;
                 onChange={handleFormChange}
                 placeholder="Enter your phone number"
               />
+
               <FormInput
                 label="Email"
-                name="phone"
-                type="text"
+                name="email"
+                type="email"
                 value={formData.email}
                 onChange={handleFormChange}
-                placeholder="Enter your Email address"
+                placeholder="Enter your email address"
               />
+
               <FormInput
-                label="subjects"
-                name="Subjects"
-                value={formData.subjects}
+                label="Subject"
+                name="subject"
+                value={formData.subject}
                 onChange={handleFormChange}
-                placeholder="Enter your Subject"
+                placeholder="Enter your subject"
               />
             </div>
-            <div>
+
+            <motion.div variants={fadeUp}>
+              <label className="text-sm font-medium text-gray-600 mb-2 block">
+                Message
+              </label>
               <textarea
                 name="message"
                 rows="6"
-                type="text"
-                value={formData.Message}
+                value={formData.message}
                 onChange={handleFormChange}
-                placeholder="Message"
-                className="border p-3 rounded-lg w-full"
-                required>
-              </textarea>
-            </div>
+                placeholder="Type your message here..."
+                className="border border-gray-300 p-3 rounded-lg w-full focus:border-green-500 focus:outline-none transition duration-150 ease-in-out"
+                required
+              ></textarea>
+            </motion.div>
 
             {/* WhatsApp Submit Button */}
-            <div className="flex flex-col items-center pt-4">
+            <motion.div
+              className="flex flex-col items-center pt-4"
+              variants={fadeUp}
+            >
               <button
                 type="submit"
                 className="flex items-center justify-center gap-2 w-full md:w-auto px-10 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition duration-300"
@@ -207,63 +219,72 @@ ${form.message}`;
                 </svg>
                 Send via WhatsApp
               </button>
-            </div>
+            </motion.div>
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* -------------------- FIND US SECTION -------------------- */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <h2 className="text-4xl text-center font-extrabold text-gray-800 mb-10">
+        <motion.h2
+          className="text-4xl text-center font-extrabold text-gray-800 mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           Find Us Here
-        </h2>
+        </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-          <div className="flex items-center space-x-4 p-6 bg-green-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-            <div className="p-3 bg-green-200 rounded-full">
-              <Phone className="w-6 h-6 text-green-700" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500">Phone</p>
-              <a
-                href="tel:+2348069546092"
-                className="text-lg font-semibold text-gray-800 hover:text-green-600 transition"
-              >
-                +2348069546092
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4 p-6 bg-green-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-            <div className="p-3 bg-green-200 rounded-full">
-              <Mail className="w-6 h-6 text-green-700" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500">Email</p>
-              <a
-                href="mailto:hello@carecenter.gohealth.com"
-                className="text-lg font-semibold text-gray-800 hover:text-green-600 transition"
-              >
-                hello@carecenter.gohealth.com
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4 p-6 bg-green-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-            <div className="p-3 bg-green-200 rounded-full">
-              <MapPin className="w-6 h-6 text-green-700" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500">Location</p>
-              <address className="text-lg font-semibold text-gray-800 not-italic">
-                Villa 1, Maccat Villa, Apo Legislative Qtrs, Zone E, FCT Abuja
-              </address>
-            </div>
-          </div>
-        </div>
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+        >
+          {[ 
+            { icon: <Phone className="w-6 h-6 text-green-700" />, label: "Phone", value: "+234 806 954 6092", href: "tel:+2348069546092" },
+            { icon: <Mail className="w-6 h-6 text-green-700" />, label: "Email", value: "info@kevlartelecoms.com", href: "mailto:info@kevlartelecoms.com" },
+            { icon: <MapPin className="w-6 h-6 text-green-700" />, label: "Location", value: "Villa 1, Maccat Villa, Apo Legislative Qtrs, Zone E, FCT Abuja" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="flex items-center space-x-4 p-6 bg-green-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300"
+              variants={fadeUp}
+            >
+              <div className="p-3 bg-green-200 rounded-full">{item.icon}</div>
+              <div>
+                <p className="text-sm font-medium text-gray-500">{item.label}</p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    className="text-lg font-semibold text-gray-800 hover:text-green-600 transition"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-lg font-semibold text-gray-800">{item.value}</p>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Map */}
-        <div className="w-full h-96 rounded-3xl overflow-hidden shadow-2xl relative">
+        <motion.div
+          className="w-full h-96 rounded-3xl overflow-hidden shadow-2xl relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <iframe
             className="w-full h-64 md:h-96 rounded-lg"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d720.0223218814946!2d7.4840075008514235!3d9.004474338865665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0d7cec2e0ff5%3A0xe07009cb420e5bef!2sMACCATT%20VILLAS!5e1!3m2!1sen!2sng!4v1760454131682!5m2!1sen!2sng"
@@ -272,10 +293,15 @@ ${form.message}`;
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
 
-          <div className="absolute bottom-4 right-4 p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg cursor-pointer transition duration-300">
+          <a
+            href="https://www.google.com/maps?q=Villa+1,+Maccat+Villa,+Apo+Legislative+Qtrs,+Zone+E,+FCT+Abuja"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg cursor-pointer transition duration-300"
+          >
             View in Google Maps
-          </div>
-        </div>
+          </a>
+        </motion.div>
       </section>
     </div>
   );

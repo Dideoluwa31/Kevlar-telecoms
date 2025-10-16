@@ -14,7 +14,6 @@ export default function RootLayout({ children }) {
       <body className="bg-white text-black dark:bg-black dark:text-white transition-colors duration-500">
         <Navbar />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
