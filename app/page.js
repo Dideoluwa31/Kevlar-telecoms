@@ -20,7 +20,7 @@ export default function Home() {
     >
     <div>
       <div>
-        <Navbar/>
+        
         <LandingPage/>
         <AboutSection/>
         <VisionMissionSection/>
@@ -28,7 +28,7 @@ export default function Home() {
         <ApproachSection/>
         <ClientsSection/>
         <ProjectsSection/>
-        <Footer/>
+        
       </div>
       
 
