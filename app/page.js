@@ -23,13 +23,12 @@ export default function Home() {
         <Navbar/>
         <LandingPage/>
         <AboutSection/>
+        <VisionMissionSection/>
         <ServicesSection/>
         <ApproachSection/>
         <ClientsSection/>
         <ProjectsSection/>
-        <VisionMissionSection/>
         <Footer/>
-
       </div>
       
 

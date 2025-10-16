@@ -25,7 +25,7 @@ export default function Footer() {
               height={40}
               className="object-contain"
             />
-            <h3 className="text-white font-semibold text-lg">Kevlar Telecoms Limited</h3>
+            
           </div>
           <p className="text-sm leading-relaxed text-gray-400">
             A licensed ICT and telecommunications company committed to providing
@@ -44,7 +44,7 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-4 text-lg">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             {[
-              { name: "About Us", href: "#about" },
+              { name: "About Us", href: "#about " },
               { name: "Services", href: "#services" },
               { name: "Our Approach", href: "#approach" },
               { name: "Projects", href: "#projects" },
@@ -84,8 +84,8 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <Phone size={18} className="text-[var(--brand)] mt-0.5" />
-              <a href="tel:+2349012345678" className="hover:text-[var(--brand)]">
-                +234 901 234 5678
+              <a href="tel:+2348069546092" className="hover:text-[var(--brand)]">
+                +234 806 954 6092
               </a>
             </li>
           </ul>

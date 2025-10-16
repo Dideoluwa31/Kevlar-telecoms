@@ -13,7 +13,7 @@ export default function AboutSection() {
       className="bg-white/80 backdrop-blur-sm py-12 px-6 md:px-16"
       style={{ ["--brand"]: "#019a65" }}
     >
-      <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 items-center">
+      <div className=" relative max-w-7xl mx-auto grid gap-8 md:grid-cols-2 items-center">
         {/* Text content */}
         <motion.div
           variants={fadeInUp}
@@ -25,7 +25,7 @@ export default function AboutSection() {
             About Kevlar Telecoms
           </h2>
 
-          <p className="mt-4 text-gray-700 leading-relaxed">
+          <p className="mt-4 text-gray-700 text-xl leading-relaxed">
             <strong>KEVLAR TELECOMS LIMITED</strong> is a licensed indigenously
             owned ICT and Telecommunications company that has been operating in
             the Nigerian telecommunications sphere and beyond. As the world
@@ -34,7 +34,7 @@ export default function AboutSection() {
             service delivery, customer satisfaction, and lasting partnerships.
           </p>
 
-          <p className="mt-4 text-gray-700 leading-relaxed">
+          <p className="mt-4 text-gray-700 text-xl leading-relaxed">
             With a track record spanning over five years, Kevlar has developed
             a strong team of multi-domain experts with in-depth industry
             knowledge. We are strategically positioned to help our clients make
@@ -86,7 +86,7 @@ export default function AboutSection() {
 
           <div className="mt-6 text-lg text-gray-600">
             <p className="mb-3">Our expertise spans across:</p>
-            <ul className="grid gap-1 text-xs lg:text-lg">
+            <ul className="grid gap-1 text-sm sm:text-sm">
               <li>• Fiber Optic Deployment (Backhaul, Metro, Last-Mile)</li>
               <li>• Structured Cabling & Data Centers</li>
               <li>• Smart City & Campus Solutions</li>
