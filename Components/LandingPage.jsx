@@ -1,8 +1,9 @@
 "use client"; // This must be at the top since WhoWeAre is a client component
 
 import React from 'react';
-import { Compass, Laptop2, SearchCheck, BarChart3 } from 'lucide-react';
-import Image from "next/image"; // Required for the WhoWeAre section
+// Added icons for WhoWeAre section
+import { Compass, Laptop2, SearchCheck, BarChart3, Home, Webcam, Cable, Server, Antenna, Cctv } from 'lucide-react';
+
 
 // --- Data for the Hero/Services Section (App Component) ---
 const heroServices = [
@@ -25,40 +26,47 @@ const ServiceCard = ({ icon: Icon, title, description, color }) => (
 );
 
 // --- Who We Are Component ---
+// UPDATED: Replaced image paths with imported icons and added an iconColor property
 const whoWeAreServices = [
   {
     title: "SMART CITY DEPLOYMENT",
-    icon: "/landingpageimg/four.jpeg",
+    icon: Home, // Using a Home icon
+    iconColor: "text-blue-400",
     bg: "bg-[#0a0e0f]",
     textColor: "text-white",
   },
   {
     title: "CAMPUS SOLUTION DEPLOYMENT",
-    icon: "/landingpageimg/one.jpeg",
+    icon: Webcam, // Using a Campus/Graduation icon
+    iconColor: "text-yellow-600",
     bg: "bg-[#f9f9f9]",
     textColor: "text-black",
   },
   {
     title: "FTT(x) DEPLOYMENT",
-    icon: "/landingpageimg/three.jpeg",
+    icon: Cable, // Using a Cable icon for Fiber
+    iconColor: "text-red-500",
     bg: "bg-[#222222]",
     textColor: "text-white",
   },
   {
     title: "CABLING AND DATA CENTER SOLUTIONS",
-    icon: "/landingpageimg/two.jpeg",
+    icon: Server, // Using a Server icon for Data Center
+    iconColor: "text-green-500",
     bg: "bg-[#f2f2f2]",
     textColor: "text-black",
   },
   {
     title: "BASE STATION DEPLOYMENT",
-    icon: "/landingpageimg/four.jpeg",
+    icon: Antenna, // Using an Antenna icon
+    iconColor: "text-indigo-400",
     bg: "bg-[#0a0e0f]",
     textColor: "text-white",
   },
   {
     title: "CCTV INSTALLATION",
-    icon: "/landingpageimg/one.jpeg",
+    icon: Cctv, // Using a CCTV icon
+    iconColor: "text-orange-500",
     bg: "bg-[#fafafa]",
     textColor: "text-black",
   },
@@ -71,34 +79,35 @@ const WhoWeAre = () => {
         Who We Are
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {whoWeAreServices.map((item, index) => (
-          <div
-            key={index}
-            className={`${item.bg} ${item.textColor} rounded-3xl p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 min-h-[300px]`}
-          >
-            <div>
-              <Image
-                src={item.icon}
-                alt={item.title}
-                width={120}
-                height={100}
-                className="mb-4"
-              />
-              <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
-              <div className="w-8 h-1 bg-green-600 mb-6"></div>
-            </div>
-
-            <button
-              className={`px-6 py-2 rounded-md font-medium text-sm w-fit ${
-                item.bg === "bg-[#b40000]"
-                  ? "bg-black text-white hover:bg-gray-800"
-                  : "bg-[#019a65] text-white hover:bg-green-800"
-              } transition`}
+        {whoWeAreServices.map((item, index) => {
+          const Icon = item.icon; // Get the Icon component from the data
+          return (
+            <div
+              key={index}
+              className={`${item.bg} ${item.textColor} rounded-3xl p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 min-h-[300px]`}
             >
-              Explore
-            </button>
-          </div>
-        ))}
+              <div>
+                {/* UPDATED: Render the Icon component instead of the Image */}
+                <div className={`mb-6 p-4 rounded-xl inline-block ${item.iconColor.replace('text-', 'bg-')} bg-opacity-10`}>
+                  <Icon className={`w-10 h-10 ${item.iconColor}`} />
+                </div>
+                
+                <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                <div className="w-8 h-1 bg-green-600 mb-6"></div>
+              </div>
+
+              <button
+                className={`px-6 py-2 rounded-md font-medium text-sm w-fit ${
+                  item.bg === "bg-[#b40000]" // Adjusted logic, though this specific background doesn't exist now
+                    ? "bg-black text-white hover:bg-gray-800"
+                    : "bg-[#019a65] text-white hover:bg-green-800"
+                } transition`}
+              >
+                Explore
+              </button>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,12 +1,12 @@
-import AboutSection from "@/Components/AboutSection";
-import ServicesSection from "@/Components/ServicesSection";
-import Navbar from "@/Components/Navbar";
-import LandingPage from "@/Components/LandingPage";
-import ApproachSection from "@/Components/ApproachSection";
-import ClientsSection from "@/Components/ClientsSection";
-import ProjectsSection from "@/Components/ProjectsSection";
-import VisionMissionSection from "@/Components/VisionMissionSection";
-import Footer from "@/Components/Footer";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import Navbar from "@/components/Navbar";
+import LandingPage from "@/components/LandingPage";
+import ApproachSection from "@/components/ApproachSection";
+import ClientsSection from "@/components/ClientsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import VisionMissionSection from "@/components/VisionMissionSection";
+import Footer from "@/components/Footer";
 
 
 
