@@ -21,7 +21,7 @@ export default function AboutSection() {
           whileInView="show"
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900">
             About Kevlar Telecoms
           </h2>
 
@@ -56,6 +56,17 @@ export default function AboutSection() {
             >
               View Projects
             </a>
+            {/* Download Button */}
+      
+          <a
+            href="/kevlar-company-profile.pdf"
+            download
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-white font-medium"
+            style={{ backgroundColor: "var(--brand)" }}
+          >
+            Download Company Profile
+          </a>
+       
           </div>
         </motion.div>
 
@@ -73,9 +84,9 @@ export default function AboutSection() {
             <CardStat title="Projects" value="50+" />
           </div>
 
-          <div className="mt-6 text-sm text-gray-600">
+          <div className="mt-6 text-lg text-gray-600">
             <p className="mb-3">Our expertise spans across:</p>
-            <ul className="grid gap-1 text-xs sm:text-sm">
+            <ul className="grid gap-1 text-xs lg:text-lg">
               <li>• Fiber Optic Deployment (Backhaul, Metro, Last-Mile)</li>
               <li>• Structured Cabling & Data Centers</li>
               <li>• Smart City & Campus Solutions</li>

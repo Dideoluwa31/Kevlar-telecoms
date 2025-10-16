@@ -26,7 +26,7 @@ export default function ClientsSection() {
     >
       {/* Header */}
       <div>
-        <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+        <h3 className="text-5xl lg:text-4xl font-bold text-gray-900">
           Our Clients & Partners
         </h3>
         <p className="mt-3 text-gray-600 max-w-2xl mx-auto">

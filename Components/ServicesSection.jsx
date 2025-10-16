@@ -81,7 +81,7 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h3 className="text-3xl lg:text-4xl font-bold text-gray-900">
             Our Services
           </h3>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
@@ -113,7 +113,7 @@ export default function ServicesSection() {
                 <h4 className="font-semibold text-lg text-gray-900">
                   {service.title}
                 </h4>
-                <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-1">
+                <p className="mt-2 text-lg text-gray-600 leading-relaxed flex-1">
                   {service.desc}
                 </p>
                 <a

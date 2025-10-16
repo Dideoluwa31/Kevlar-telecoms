@@ -52,8 +52,8 @@ export default function VisionMissionSection() {
           >
             👁️
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Vision</h3>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Our Vision</h3>
+          <p className="text-gray-700 leading-relaxed text-lg lg:text-base">
             To be a leading telecom and smart infrastructure company delivering
             innovative and sustainable connectivity solutions across Africa —
             empowering communities and businesses through technology.
@@ -76,8 +76,8 @@ export default function VisionMissionSection() {
           >
             🎯
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Mission</h3>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">Our Mission</h3>
+          <p className="text-gray-700 leading-relaxed text-lg lg:text-base">
             To provide cutting-edge telecommunications, fiber optics, and smart
             technology solutions through operational excellence, continuous
             innovation, and strategic partnerships that deliver measurable value

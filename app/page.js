@@ -20,10 +20,8 @@ export default function Home() {
     >
     <div>
       <div>
-        <div>
-        {/* <LandingPage/> */}
-      </div>
-        {/* <Navbar/> */}
+        <Navbar/>
+        <LandingPage/>
         <AboutSection/>
         <ServicesSection/>
         <ApproachSection/>
