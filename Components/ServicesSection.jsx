@@ -81,10 +81,10 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h3 className="text-3xl sm:text-4xl  font-bold text-gray-900">
             Our Services
           </h3>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-3 text-black text-xl max-w-2xl mx-auto">
             Kevlar Telecoms provides a full spectrum of ICT and
             telecommunications services designed to deliver reliable,
             sustainable, and innovative solutions.

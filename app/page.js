@@ -20,12 +20,11 @@ export default function Home() {
     >
     <div>
       <div>
-        <div>
-        {/* <LandingPage/> */}
-      </div>
-        {/* <Navbar/> */}
-        <AboutSection/>
+        
+        <Navbar/>
+        <LandingPage/>
         <ServicesSection/>
+        <AboutSection/>
         <ApproachSection/>
         <ClientsSection/>
         <ProjectsSection/>

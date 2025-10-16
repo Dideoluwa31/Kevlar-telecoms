@@ -1,80 +1,154 @@
-"use client";
+"use client"; // This must be at the top since WhoWeAre is a client component
 
-import Image from "next/image";
+import React from 'react';
+import { Compass, Laptop2, SearchCheck, BarChart3 } from 'lucide-react';
+import Image from "next/image"; // Required for the WhoWeAre section
 
-export default function LandingPage() {
+// --- Data for the Hero/Services Section (App Component) ---
+const heroServices = [
+  { icon: Compass, title: "Strategy & Discovery", description: "We provide the most responsive and functional IT design for companies and businesses worldwide.", color: "text-blue-600" },
+  { icon: Laptop2, title: "Software Solution", description: "We provide the most responsive and functional IT design for companies and businesses worldwide.", color: "text-orange-600" },
+  { icon: SearchCheck, title: "Technology Solution", description: "We provide the most responsive and functional IT design for companies and businesses worldwide.", color: "text-teal-600" },
+  { icon: BarChart3, title: "Business Analytics", description: "We provide the most responsive and functional IT design for companies and businesses worldwide.", color: "text-indigo-600" },
+];
+
+// --- Service Card Component (from the first file) ---
+const ServiceCard = ({ icon: Icon, title, description, color }) => (
+  <div className="bg-white p-4 md:p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 min-w-[250px]">
+    {/* Note: The style attribute is adjusted slightly for compatibility */}
+    <div className={`p-4 rounded-xl inline-block mb-4 ${color.replace('text-', 'bg-')} bg-opacity-10`}>
+      <Icon className={`w-8 h-8 ${color}`} />
+    </div>
+    <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+    <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+  </div>
+);
+
+// --- Who We Are Component ---
+const whoWeAreServices = [
+  {
+    title: "SMART CITY DEPLOYMENT",
+    icon: "/landingpageimg/four.jpeg",
+    bg: "bg-[#0a0e0f]",
+    textColor: "text-white",
+  },
+  {
+    title: "CAMPUS SOLUTION DEPLOYMENT",
+    icon: "/landingpageimg/one.jpeg",
+    bg: "bg-[#f9f9f9]",
+    textColor: "text-black",
+  },
+  {
+    title: "FTT(x) DEPLOYMENT",
+    icon: "/landingpageimg/three.jpeg",
+    bg: "bg-[#222222]",
+    textColor: "text-white",
+  },
+  {
+    title: "CABLING AND DATA CENTER SOLUTIONS",
+    icon: "/landingpageimg/two.jpeg",
+    bg: "bg-[#f2f2f2]",
+    textColor: "text-black",
+  },
+  {
+    title: "BASE STATION DEPLOYMENT",
+    icon: "/landingpageimg/four.jpeg",
+    bg: "bg-[#0a0e0f]",
+    textColor: "text-white",
+  },
+  {
+    title: "CCTV INSTALLATION",
+    icon: "/landingpageimg/one.jpeg",
+    bg: "bg-[#fafafa]",
+    textColor: "text-black",
+  },
+];
+
+const WhoWeAre = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-green-200 via-green-300 to-green-400 dark:from-green-900 dark:via-green-800 dark:to-black transition-colors duration-700">
-      {/* HERO CONTENT */}
-      <div className="relative z-20 flex flex-col justify-center items-start h-[80vh] px-10 md:px-20 text-left">
-        <p className="uppercase tracking-wide text-sm font-semibold text-green-700 dark:text-green-400">
-          Technology Related Consultancy
-        </p>
-
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight mt-4">
-          We bring great <br />
-          <span className="text-green-700 dark:text-green-400">Ideas</span> to life
-        </h1>
-
-        <p className="mt-4 text-gray-700 dark:text-gray-300 max-w-md">
-          We provide the most responsive and functional IT design for companies and businesses worldwide.
-        </p>
-
-        <button className="mt-6 px-6 py-3 rounded-xl font-semibold text-white bg-green-700 hover:bg-green-800 dark:bg-green-500 dark:hover:bg-green-400 transition">
-          Read More
-        </button>
-      </div>
-
-      {/* FLIPPED CURVED DIVIDER (blends with gradient) */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 rotate-180">
-        <svg
-          className="relative block w-[calc(100%+1.3px)] h-[120px]"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M985.66,92.83
-               C906.67,72,823.78,31.06,743.84,14.19
-               C661.39-3.06,578.69,1.62,495.74,18.47
-               C418.9,34.07,339.52,64.27,261.07,83.17
-               C189.32,100,117.52,104.81,45.78,93.45
-               C30.07,91,15,87.27,0,83.25
-               V120H1200V96.36
-               C1137.12,112.41,1063.6,113.63,985.66,92.83Z"
-            fill="url(#blendGradient)"
-          ></path>
-          <defs>
-            <linearGradient id="blendGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#A7F3D0" /> {/* light green top */}
-              <stop offset="100%" stopColor="#F0FDF4" /> {/* pale green bottom */}
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* IMAGE BOX SECTION */}
-      <div className="relative  z-30 grid grid-cols-1 md:grid-cols-4 gap-6 px-6 md:px-20 pb-20 bg-gradient-to-r from-green-100 via-green-50 to-green-100 dark:from-green-950 dark:via-green-900 dark:to-black transition-colors duration-700">
-        {[
-          "/landingpageimg/one.jpeg",
-          "/landingpageimg/two.jpeg",
-          "/landingpageimg/three.jpeg",
-          "/landingpageimg/four.jpeg",
-        ].map((img, i) => (
+    <section className="py-16 px-6 md:px-12 bg-white">
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        Who We Are
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {whoWeAreServices.map((item, index) => (
           <div
-            key={i}
-            className="rounded-2xl overflow-hidden shadow-xl hover:-translate-y-8 transition-transform duration-500"
+            key={index}
+            className={`${item.bg} ${item.textColor} rounded-3xl p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 min-h-[300px]`}
           >
-            <Image
-              src={img}
-              alt={`Box ${i + 1}`}
-              width={500}
-              height={400}
-              className="object-cover w-full h-64"
-            />
+            <div>
+              <Image
+                src={item.icon}
+                alt={item.title}
+                width={120}
+                height={100}
+                className="mb-4"
+              />
+              <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+              <div className="w-8 h-1 bg-green-600 mb-6"></div>
+            </div>
+
+            <button
+              className={`px-6 py-2 rounded-md font-medium text-sm w-fit ${
+                item.bg === "bg-[#b40000]"
+                  ? "bg-black text-white hover:bg-gray-800"
+                  : "bg-[#019a65] text-white hover:bg-green-800"
+              } transition`}
+            >
+              Explore
+            </button>
           </div>
         ))}
       </div>
     </section>
   );
 }
+
+// --- Main Application Component ---
+const App = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 font-inter">
+      {/* Hero Section Container with White-to-Green Gradient Background */}
+      <header className="relative pt-16 pb-48 md:pb-64 bg-gradient-to-r from-white to-emerald-700 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Main Content (Aligned Left) */}
+          <div className="max-w-3xl pt-10 md:pt-20">
+            <p className="text-base font-semibold uppercase tracking-wider text-green-900 opacity-80 mb-3">
+              TECHNOLOGY RELATED CONSULTANCY
+            </p>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-green-900 leading-tight mb-6">
+              KEVLAR TELECOMS <br className="hidden sm:inline" /> LIMITED
+            </h1>
+            <p className="text-xl text-GREEN-900 opacity-90 mb-8 max-w-xl">
+              delivers quality projects on time for our clients and also maintaining continuous improvements in the world
+            </p>
+            <button className="bg-white text-emerald-600 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+              Read More
+            </button>
+          </div>
+        </div>
+        {/* Decorative Circle (Similar to original image) */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full opacity-30 blur-3xl transform -translate-x-1/2 -translate-y-1/2 hidden md:block" aria-hidden="true"></div>
+      </header>
+
+      {/* Overlapping Service Card Section */}
+      <section className="relative -mt-32 sm:-mt-48 z-20 mb-16">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8">
+            {heroServices.map((service, index) => (
+              <ServiceCard key={index} {...service} />
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* --- Inserted WhoWeAre Component Here --- 
+        The sections naturally stack: Hero -> Overlapping Cards -> Who We Are.
+      */}
+      <WhoWeAre />
+
+    </div>
+  );
+};
+
+export default App;
