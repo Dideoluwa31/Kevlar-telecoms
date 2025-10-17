@@ -12,6 +12,8 @@ export default function ClientsSection() {
     { name: "LASG", img: "/clients/lasg.jpg" },
     { name: "NIMC", img: "/clients/nimc.jpg" },
     { name: "Galaxy BackBone", img: "/clients/gbb.png" },
+    { name: "NCC", img: "/clients/ncclogo.png" },
+
   ];
 
   // Duplicate for smooth infinite loop

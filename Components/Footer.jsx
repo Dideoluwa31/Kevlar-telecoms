@@ -19,11 +19,11 @@ export default function Footer() {
         >
           <div className="flex items-center gap-3 mb-4">
             <Image
-              src="/clients/kevlar logo.png"
+              src="/logo/kevlarlogo1.png"
               alt="Kevlar Telecoms Logo"
-              width={40}
-              height={40}
-              className="object-contain"
+              width={200}
+              height={100}
+              className="object-contain rounded-md"
             />
             
           </div>
@@ -112,9 +112,28 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="mt-12 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Kevlar Telecoms Limited. All rights reserved.
+     <div className="mt-12 border-t border-gray-800 pt-6 text-center text-md text-gray-500">
+        © {new Date().getFullYear()} Kevlar Telecoms Limited. All rights reserved. <br />
+        Developed by{" "}
+        <a
+          href="https://github.com/prince-jagaban"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#019a65] hover:text-[#017a50] px-2 font-medium transition-colors"
+        >
+          Usman Habib
+        </a>
+
+        <a
+          href="https://github.com/Dideoluwa31"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#019a65] hover:text-[#017a50] px-2 font-medium transition-colors"
+        >
+          Asubiojo Oreoluwa
+        </a>
       </div>
+
     </footer>
   );
 }
