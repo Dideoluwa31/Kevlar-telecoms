@@ -37,7 +37,7 @@ export default function Navbar() {
     <nav
       className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
         navBg
-          ? "bg-[#F6FFF6] dark:bg-gray-900 shadow-md"
+          ? "bg-[#F6FFF6] shadow-md"
           : "bg-transparent"
       }`}
     >

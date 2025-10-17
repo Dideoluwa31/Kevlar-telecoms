@@ -27,7 +27,7 @@ export default function ProjectsSection() {
     {
       title: "Smart City Infrastructure Project",
       desc: "Deployed intelligent systems, surveillance, and broadband infrastructure for modern urban management and communication.",
-      img: "/projects/smart-city.jpg",
+      img: "/projects/smartcity2.jpeg",
     },
     {
       title: "Telecom Equipment Supply & Testing",
@@ -87,7 +87,7 @@ export default function ProjectsSection() {
               </h4>
               <p className="text-sm text-gray-600 flex-1">{project.desc}</p>
               <a
-                href="#contact"
+                href="/contactus"
                 className="mt-4 inline-block text-sm font-medium self-start hover:underline"
                 style={{ color: "var(--brand)" }}
               >

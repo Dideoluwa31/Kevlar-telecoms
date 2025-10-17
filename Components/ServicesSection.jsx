@@ -117,7 +117,7 @@ export default function ServicesSection() {
                   {service.desc}
                 </p>
                 <a
-                  href="#contact"
+                  href="/contactus"
                   className="mt-4 inline-block text-sm font-medium"
                   style={{ color: "var(--brand)" }}
                 >
