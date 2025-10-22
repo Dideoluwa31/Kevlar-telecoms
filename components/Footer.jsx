@@ -74,12 +74,12 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-2">
               <MapPin size={18} className="text-[var(--brand)] mt-0.5" />
-              <span>12, Linda Chalker Crescent, Asokoro, Abuja, Nigeria</span>
+              <span>Villa 1, Maccat Villa, Apo Legislative Qtrs, Zone E, FCT Abuja</span>
             </li>
             <li className="flex items-start gap-2">
               <Mail size={18} className="text-[var(--brand)] mt-0.5" />
-              <a href="mailto:info@kevlartel.com" className="hover:text-[var(--brand)]">
-                info@.com
+              <a href="mailto:admin@kevlartelecoms.com" className="hover:text-[var(--brand)]">
+                admin@kevlartelecoms.com
               </a>
             </li>
             <li className="flex items-start gap-2">

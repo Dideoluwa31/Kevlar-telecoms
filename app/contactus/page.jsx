@@ -251,7 +251,7 @@ ${formData.message}
         >
           {[ 
             { icon: <Phone className="w-6 h-6 text-green-700" />, label: "Phone", value: "+234 806 954 6092", href: "tel:+2348069546092" },
-            { icon: <Mail className="w-6 h-6 text-green-700" />, label: "Email", value: "info@kevlartelecoms.com", href: "mailto:info@kevlartelecoms.com" },
+            { icon: <Mail className="w-6 h-6 text-green-700" />, label: "Email", value: "admin@kevlartelecoms.com", href: "mailto:admin@kevlartelecoms.com" },
             { icon: <MapPin className="w-6 h-6 text-green-700" />, label: "Location", value: "Villa 1, Maccat Villa, Apo Legislative Qtrs, Zone E, FCT Abuja" },
           ].map((item, i) => (
             <motion.div
